@@ -1,4 +1,31 @@
 $(document).ready(function() {
+/***** Begin icon animation *****/
+$(window).scroll(function() {
+	if ($(window).scrollTop() <= 925) {	
+		if ($(window).scrollTop() === 0) {
+			$('#Headphones', $('#homeIcon')[0].contentDocument)
+				.css('transform', 'rotate(0deg)');
+
+			$('#apc-icon > path', $('#homeIcon')[0].contentDocument)
+				.css('opacity', '1');
+		} else if ($(window).scrollTop() > 900) {
+			$('#Headphones', $('#homeIcon')[0].contentDocument)
+			.css('transform', 'rotate(90deg)');
+
+			$('#apc-icon > path', $('#homeIcon')[0].contentDocument)
+				.css('opacity', '0');
+		} else {
+			$('#Headphones', $('#homeIcon')[0].contentDocument)
+				.css('transform', 'rotate(' + $(window).scrollTop() / (925 / 90) + 'deg)');
+
+			$('#apc-icon > path', $('#homeIcon')[0].contentDocument)
+				.css('opacity', 1 / $(window).scrollTop() * 10);
+		}
+	}
+});
+/***** End icon animation *****/
+
+/***** Begin contact form verify *****/
 	$('#submitContactSection button').addClass('disabled');
 
 	$('.contactFormSection input, .contactFormSection textarea').blur(function(event) {
@@ -28,4 +55,5 @@ $(document).ready(function() {
 			$('#submitContactSection button').removeClass('disabled').attr('disabled', false);
 		}
 	});
+/***** End contact form verify *****/
 });

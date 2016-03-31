@@ -17,7 +17,7 @@ $sectionHeader4: #7dff7d;
 $footerBackground: #0d0d0d;
 
 //for calculations
-$navHeight: 44px;
+$navHeight: 70px;
 $padding: 10px;
 
 //typography
@@ -63,23 +63,38 @@ section > * {
 
 .navOuterWrapper {
 	position: fixed;
+	display: -webkit-flex;
+	-webkit-justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 	background-color: #1a1a1a;
 	width: 100%;
-	padding: 10px 0;
+	padding: 10px 20px;
+	box-sizing: border-box;
 	z-index: 100;
 }
-	.navInnerWrapper {
-		float: right;
 
+	#homeIcon {
+		height: 50px;
+		cursor: pointer;
 	}
-	.navInnerWrapper .navItem {
-		float: left;
-		font-size: 1.5em;
-		margin-right: 20px;
 
-		a:link, a:visited {
-			color: #fff;
-			text-decoration: none;
+	.navInnerWrapper {
+		-webkit-align-self: center;
+		align-self: center;
+
+		.navItem {
+			float: left;
+			font-size: 1.5em;
+
+			+ * {
+				margin-left: 20px;
+			}
+
+			a:link, a:visited {
+				color: #fff;
+				text-decoration: none;
+			}
 		}
 	}
 
