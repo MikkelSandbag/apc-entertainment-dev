@@ -341,20 +341,22 @@ section > * {
 	margin-bottom: $padding * 4;
 }
 
-	.imageRow {
-		overflow: hidden;
+	.imageGallery {
+		display: flex;
+		flex-wrap: wrap;
 
-		img {
-			float: left;
-			width: 23%;
-			margin: 0 1% 2%;
-			box-sizing: border-box;
-			opacity: 0.33;
-			transition: opacity 0.2s ease-in-out;
-			cursor: pointer;
+		a {
+			flex: 0 0 calc(25% - 20px);
+			margin: 0 20px 20px 0;
+
+			img {
+				width: 100%;
+				opacity: 0.33;
+				transition: opacity 0.2s ease-in-out;
 		
-			&:hover {
-				opacity: 1;
+				&:hover {
+					opacity: 1;
+				}
 			}
 		}
 	}
