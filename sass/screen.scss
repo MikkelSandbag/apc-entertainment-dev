@@ -185,20 +185,20 @@ section > * {
 .servicesBlockWrapper {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 	margin: ($padding * 9) auto 0;
 }
 	.servicesBlock {
-		float: left;
-		width: 25%;
+		flex: 1 0;
 
 		img {
 			display: block;
-			min-height: 405px;
 			margin: 0 auto;
 		}
-	}
-	.servicesBlock:nth-child(2) {
-		padding: 0 12.5%;
+
+		&:nth-child(2) {
+			margin: 0 $padding * 4;
+		}
 	}
 
 .testimonialSection {
@@ -492,20 +492,6 @@ footer {
 	padding: ($padding * 2) 0;
 	text-align: center;
 
-	.siteMap {
-		display: flex;
-		justify-content: space-between;
-		margin: 0 auto;
-		width: 40%;
-
-		li a:link,
-		li a:visited {
-			color: #fff;
-			font-size: 1.9em;
-			text-decoration: none;
-		}
-	}
-
 	.copyright {
 		font: {
 			family: "futura-pt", sans-serif;
@@ -549,4 +535,17 @@ footer {
 			margin-top: 40px;
 		}
 	}	
+}
+
+@media only screen and (max-width: 768px) {
+	.servicesBlockWrapper {
+		justify-content: center;
+	}
+		.servicesBlock {
+			flex: 0 0 calc(50% - 40px);
+			
+			&:nth-child(2) {
+				margin: 0 0 40px 40px;
+			}
+		}
 }
