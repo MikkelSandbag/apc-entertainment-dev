@@ -11,11 +11,14 @@
 	<link rel="stylesheet" href="stylesheets/fullcalendar.min.css">
 	<!-- main styles - master override -->
 	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+
+	<!-- Font Awesome -->
+	<script src="https://use.fontawesome.com/380ccfc68c.js"></script>
 </head>
 <body>
 	<nav class="navOuterWrapper">
 		<a href="#top" class="homeLink"><img src="images/apc-icon.svg" id="homeIcon" alt="APC Entertainment Icon"></a>
-		<!-- <object data="images/apc-icon.svg" type="image/svg+xml" id="homeIcon"><a href="#top" class="homeLink">APC Entertainment</a></object> -->
+		<div class="mobileMenuButton"></div>
 		<ul class="navInnerWrapper">
 			<li class="navItem"><a href="#services">Services</a></li>
 			<li class="navItem"><a href="#events">Events</a></li>
@@ -66,9 +69,17 @@
 	<section class="eventsSection" id="events">
 		<article class="sectionHeaderWrapper">
 			<h2>Events</h2>
-
-			<div id="calendar"></div>
 		</article>
+
+		<div class="mobileView">
+			<a href="#" class="checkAvailability">Check Availability</a>
+		</div>
+
+		<div class="ctaButtonOuterWrapper">
+			<div class="ctaButtonInnerWrapper"><a href="#">Book Now</a></div>
+		</div>
+
+		<div id="calendar"></div>
 	</section>
 
 	<section class="testimonialSection">
@@ -106,7 +117,7 @@
 				<div class="contactFormSection" id="nameContactSection">
 					<label for="name">Name</label>
 					<input type="text" name="name" id="name">
-					<p class="errorMessage">This is a required field</p>
+					<p class="errorMessage">Please enter your name</p>
 				</div>
 				<div class="contactFormSection" id="emailContactSection">
 					<label for="email">Email</label>
@@ -116,12 +127,12 @@
 				<div class="contactFormSection" id="subjectContactSection">
 					<label for="subject">Subject</label>
 					<input type="text" name="subject" id="subject">
-					<p class="errorMessage">This is a required field</p>
+					<p class="errorMessage">Please enter a subject</p>
 				</div>
 				<div class="contactFormSection" id="messageContactSection">
 					<label for="message">Message</label>
 					<textarea id="message" rows="12"></textarea>
-					<p class="errorMessage">This is a required field</p>
+					<p class="errorMessage">Please write a message</p>
 				</div>
 				<div class="contactFormSection" id="submitContactSection">
 					<button class="" type="submit">Submit</button>

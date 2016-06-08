@@ -35,12 +35,28 @@ $(window).resize(function() {
 // });
 /***** End icon animation *****/
 
+/***** Begin mobile nav menu *****/
+$('.mobileMenuButton').click(function() {
+	$(this).next('.navInnerWrapper').toggleClass('show');
+});
+/* If window gets above mobile size, remove 'show' class */
+$(window).resize(function() {
+	if (window.innerWidth > 525) {
+		$('.navInnerWrapper').removeClass('show');
+	}
+});
+/* If user selects nav item, close menu */
+$('.navItem a').click(function() {
+	$('.navInnerWrapper').removeClass('show');
+});
+/***** End mobile nav menu *****/
+
 /***** Begin contact form verify *****/
 	$('#submitContactSection button').addClass('disabled');
 
 	$('.contactFormSection input, .contactFormSection textarea').blur(function(event) {
 		var emailRegEx = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*/g;
-		var charRegEx = /^([a-zA-Z0-9 ])\w+$/g;
+		var charRegEx = /^([a-z0-9\ ])\w+/ig;
 
 		if ($(this).attr('id') === 'name' || $(this).attr('id') === 'subject' || $(this).attr('id') === 'message') {
 			if (charRegEx.test($(this).val()) === false || $(this).val().length < 2) {

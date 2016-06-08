@@ -67,18 +67,31 @@ section > * {
 	-webkit-justify-content: space-between;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	background-color: #1a1a1a;
 	width: 100%;
-	padding: 10px 20px;
+	padding: $padding ($padding * 2);
 	box-sizing: border-box;
 	z-index: 100;
 }
 
-	#homeIcon {
-		height: 50px;
-		position: relative;
-		left: 0;
-		top: 0;
+	.homeLink {
+		display: block;
+	}
+
+		#homeIcon {
+			width: 92px;
+		}
+
+	.mobileMenuButton {
+		display: none;
+
+		&:before {
+			content: '\f0c9';
+			font-family: FontAwesome;
+			font-size: 1.5em;
+			cursor: pointer;
+		}
 	}
 
 	.navInnerWrapper {
@@ -123,12 +136,14 @@ section > * {
     width: 100%;
     max-width: none;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: calc(50% + #{$padding * 7});
+    transform: translate(-50%, calc(-50% - (#{$padding * 7} / 2)));
     text-align: center;
 	}
 	.ctaButtonOuterWrapper {
-		width: 430px;
+		text-align: center;
+		width: 80%;
+		max-width: 430px;
 		margin: 100px auto 0;
 		border-top: 1px solid #fff;
 		padding-top: 100px;
@@ -150,6 +165,7 @@ section > * {
 
 .sectionHeaderWrapper {
 	padding-top: ($padding * 3) + $navHeight;
+	margin-bottom: $padding * 4;
 
 	.headerDescription {
 		margin-top: $padding * 2;
@@ -194,6 +210,7 @@ section > * {
 		img {
 			display: block;
 			margin: 0 auto;
+			max-width: 260px;
 		}
 
 		&:nth-child(2) {
@@ -259,82 +276,94 @@ section > * {
 		}
 	}
 
-#calendar {
-	width: 60%;
-	margin: ($padding * 3) auto 0;
+#events {
+	#calendar {
+		width: 60%;
+		margin: ($padding * 3) auto 0;
 
-	th,
-	td {
-		border-width: 5px;
-	}
-
-	.fc-toolbar {
-		border: 5px solid #fff;
-		border-bottom: 0;
-		margin-bottom: 0;
-		padding: 5px 0;
-
-		h2 {
-			font-size: 2.5em;
-			color: #fff;
-			text-transform: capitalize;
+		th,
+		td {
+			border-width: 5px;
 		}
 
-		button.fc-button {
-			background: 0;
-			box-shadow: none;
-			border: 0;
-			height: 3em;
-			padding: 0;
+		.fc-toolbar {
+			border: 5px solid #fff;
+			border-bottom: 0;
+			margin-bottom: 0;
+			padding: 5px 0;
 
-			&:focus {
-				outline: none;
+			h2 {
+				font-size: 2.5em;
+				color: #fff;
+				text-transform: capitalize;
 			}
 
-			.fc-icon {
-				color: #fff;
+			button.fc-button {
 				background: 0;
-				width: 3em;
+				box-shadow: none;
+				border: 0;
 				height: 3em;
-				margin: 0;
+				padding: 0;
 
-				&:after {
-					top: 0;
-					font: {
-						size: 3em;
-						weight: 100;
-					}
-					line-height: 1em;
+				&:focus {
+					outline: none;
+				}
+
+				.fc-icon {
+					color: #fff;
+					background: 0;
+					width: 3em;
+					height: 3em;
 					margin: 0;
+
+					&:after {
+						top: 0;
+						font: {
+							size: 3em;
+							weight: 100;
+						}
+						line-height: 1em;
+						margin: 0;
+					}
 				}
 			}
 		}
+
+		.fc-day-header {
+			font-size: 1.25em;
+			padding: 10px;
+			opacity: 0.3;
+		}
+
+		.fc-day-number {
+			font-size: 1.5em;
+			padding: 5px;
+		}
+
+		// .fc td,
+		// .fc th {
+		// 	border-width: 5px;
+		// }
+
+		// .fc-ltr .fc-basic-view .fc-day-number {
+		// 	font-size: 1.9em;
+		// }
+
+		// .fc-basic-view td.fc-day-number,
+		// .fc-basic-view td.fc-week-number span {
+		// 	padding: 5px;
+		// }
 	}
 
-	.fc-day-header {
-		font-size: 1.25em;
-		padding: 10px;
-		opacity: 0.3;
+	.mobileView {
+		display: none;
 	}
 
-	.fc-day-number {
-		font-size: 1.5em;
-		padding: 5px;
+	.ctaButtonOuterWrapper {
+		border-top: 0;
+		padding-top: 0;
+		margin-top: 0;
 	}
-
-	// .fc td,
-	// .fc th {
-	// 	border-width: 5px;
-	// }
-
-	// .fc-ltr .fc-basic-view .fc-day-number {
-	// 	font-size: 1.9em;
-	// }
-
-	// .fc-basic-view td.fc-day-number,
-	// .fc-basic-view td.fc-week-number span {
-	// 	padding: 5px;
-	// }
 }
 
 #media .sectionHeaderWrapper {
@@ -344,10 +373,11 @@ section > * {
 	.imageGallery {
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: center;
 
 		a {
-			flex: 0 0 calc(25% - 20px);
-			margin: 0 20px 20px 0;
+			flex: 0 0 300px;
+			margin: 10px;
 
 			img {
 				width: 100%;
@@ -466,8 +496,7 @@ section > * {
 	textarea {
 		font-family: "futura-pt", sans-serif;
 		font-size: 1.6em;
-		line-height: 1em;
-		text-indent: $padding/2;
+		line-height: normal;
 		color: #fff;
 		background: none;
 		border: none;
@@ -484,6 +513,7 @@ section > * {
 	textarea {
 		resize: none;
 		border: 2px solid #fff;
+		padding: $padding / 2;
 	}
 }
 
@@ -495,19 +525,19 @@ footer {
 	.copyright {
 		font: {
 			family: "futura-pt", sans-serif;
-			size: 1.6em;
+			size: 1em;
 		}
-		line-height: 1.6em;
+		line-height: 1em;
 		margin: $padding 0;
 	}
 
 	.byline {
-		font-size: 1.3em;
-		line-height: 1.3em;
+		font-size: 1em;
+		line-height: normal;
 
 		a:link,
 		a:visited {
-			color: #fff;
+			color: $sectionHeader2;
 			text-decoration: none;
 		}
 	}
@@ -515,11 +545,9 @@ footer {
 
 /***** Media Queries *****/
 @media only screen and (max-width: 1280px) {
-	#contact {
-		margin: 50px auto;
-	}
-
 	#contactForm  {
+		margin: 50px auto;
+
 		label {
 			float: none;
 			width: 100%;
@@ -534,18 +562,112 @@ footer {
 		#messageContactSection {
 			margin-top: 40px;
 		}
+
+		#submitContactSection {
+			margin-left: 0;
+		}
 	}	
 }
 
-@media only screen and (max-width: 768px) {
-	.servicesBlockWrapper {
-		justify-content: center;
-	}
-		.servicesBlock {
-			flex: 0 0 calc(50% - 40px);
-			
-			&:nth-child(2) {
-				margin: 0 0 40px 40px;
+@media only screen and (max-width: 1024px) {
+	.imageGallery {
+		a {
+			img {
+				opacity: 1;
 			}
 		}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.mobileMenuButton {
+		display: block;
+	}
+
+	.navInnerWrapper {
+		display: none;
+		text-align: center;
+		background-color: $navBackground;
+		width: 100%;
+		position: absolute;
+		top: $padding * 7;
+		left: 0;
+
+		.navItem {
+			float: none;
+			font-size: 1.25em;
+			display: inline-block;
+			padding: 10px;
+
+			+ * {
+				margin-left: 0;
+			}
+		}
+
+		&.show {
+			display: block;
+		}
+	}
+
+	h1 {
+		font-size: 2.5em;
+	}
+
+	.ctaButtonOuterWrapper {
+		margin-top: 30px;
+		padding-top: 30px;
+
+		a:link, a:visited {
+			font-size: 1.5em;
+		}
+	}
+
+	.servicesBlock {
+		flex: 1 0 100%;
+
+		&:nth-child(2) {
+			margin: 40px 0;
+		}
+	}
+
+	.testimonialText {
+		font-size: 1.25em;
+		width: 70%;
+
+		&:before {
+			left: -30px;
+			font-size: 2em;
+		}
+	}
+
+	#events {
+		.mobileView {
+			display: block;
+		}
+
+		#calendar {
+			display: none;
+		}
+	}
+
+	#contactForm {
+		width: 80%;
+
+		.contactFormSection {
+			.errorMessage {
+				left: 0;
+				transform: translateY(0);
+				top: 100%;
+				font-size: 1.15em;
+				border: 0;
+				width: 100%;
+				padding: 5px 0 0;
+				margin-left: 0;
+
+				&:before, &:after {
+					display: none;
+				}
+			}
+		}
+	}
 }
