@@ -72,7 +72,9 @@
 		</article>
 
 		<div class="mobileView">
-			<a href="#" class="checkAvailability">Check Availability</a>
+			<div class="ctaButtonOuterWrapper">
+			<div class="ctaButtonInnerWrapper"><a href="#">Check Availability</a></div>
+		</div>
 		</div>
 
 		<div class="ctaButtonOuterWrapper">
@@ -113,7 +115,7 @@
 	<section class="contactSection" id="contact">
 		<article class="sectionHeaderWrapper">
 			<h2>Contact</h2>
-			<form class="invalid" id="contactForm" action="" method="post">
+			<form class="invalid" id="contactForm" action="sendForm.php" method="POST">
 				<div class="contactFormSection" id="nameContactSection">
 					<label for="name">Name</label>
 					<input type="text" name="name" id="name">
@@ -130,12 +132,12 @@
 					<p class="errorMessage">Please enter a subject</p>
 				</div>
 				<div class="contactFormSection" id="messageContactSection">
-					<label for="message">Message</label>
-					<textarea id="message" rows="12"></textarea>
+					<label for="body">Message</label>
+					<textarea name="body" id="body" rows="12"></textarea>
 					<p class="errorMessage">Please write a message</p>
 				</div>
 				<div class="contactFormSection" id="submitContactSection">
-					<button class="" type="submit">Submit</button>
+					<button type="submit">Submit</button>
 				</div>
 			</form>
 		</article>

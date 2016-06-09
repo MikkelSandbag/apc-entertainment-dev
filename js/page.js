@@ -52,7 +52,7 @@ $('.navItem a').click(function() {
 /***** End mobile nav menu *****/
 
 /***** Begin contact form verify *****/
-	$('#submitContactSection button').addClass('disabled');
+	$('#submitContactSection button').addClass('disabled').attr('disabled', true);
 
 	$('.contactFormSection input, .contactFormSection textarea').blur(function(event) {
 		var emailRegEx = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*/g;

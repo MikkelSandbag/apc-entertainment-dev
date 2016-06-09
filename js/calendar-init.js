@@ -10,6 +10,8 @@ $(document).ready(function() {
     	center: 'title',
     	right: 'next'
     },
-    columnFormat: 'ddd'
+    columnFormat: 'ddd',
+    handleWindowResize: false,
+    height: 540
   });
 });

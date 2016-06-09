@@ -157,7 +157,7 @@ section > * {
 				display: inline-block;
 				color: #fff;
 				font-size: 2.5em;
-				line-height: 1em;
+				line-height: normal;
 				text-decoration: none;
 				padding: 4px 20px;
 			}
@@ -278,7 +278,7 @@ section > * {
 
 #events {
 	#calendar {
-		width: 60%;
+		width: 540px;
 		margin: ($padding * 3) auto 0;
 
 		th,
@@ -357,6 +357,20 @@ section > * {
 
 	.mobileView {
 		display: none;
+
+		.ctaButtonOuterWrapper {
+			margin-bottom: $padding * 2;
+		}
+
+			.ctaButtonInnerWrapper {
+				background-color: transparent;
+				border: 2px solid $ctaButton;
+
+				a:link, 
+				a:visited {
+					color: $ctaButton;
+				}
+			}
 	}
 
 	.ctaButtonOuterWrapper {
@@ -616,11 +630,13 @@ footer {
 	.ctaButtonOuterWrapper {
 		margin-top: 30px;
 		padding-top: 30px;
-
-		a:link, a:visited {
-			font-size: 1.5em;
-		}
 	}
+
+		.ctaButtonInnerWrapper {
+			a:link, a:visited {
+				font-size: 1.5em;
+			}
+		}
 
 	.servicesBlock {
 		flex: 1 0 100%;
@@ -646,7 +662,10 @@ footer {
 		}
 
 		#calendar {
-			display: none;
+			visibility: hidden;
+			width: 0;
+			height: 0;
+			margin: 0;
 		}
 	}
 
