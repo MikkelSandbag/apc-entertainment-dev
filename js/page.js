@@ -55,24 +55,56 @@ $('.navItem a').click(function() {
 	$('#submitContactSection button').addClass('disabled').attr('disabled', true);
 
 	$('.contactFormSection input, .contactFormSection textarea').blur(function(event) {
-		var emailRegEx = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*/g;
-		var charRegEx = /^([a-z0-9\ ])\w+/ig;
+		var nameRegEx = /^[a-z\ \.\']+$/i;
+		var emailRegEx = /[a-zA-Z0-9\.\!\#\$\%\&\'\*\+\/\=\?\^\_\`\{\|\}\~\-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*/;
+		var subjectRegEx = /^[a-z0-9\ \!\@\#\$\%\&\*\(\)\-\_\+\=\,\.\?\/\;\:\'\"]+$/i;
+		var messageRegEx = /^[a-z0-9\ \!\@\#\$\%\&\*\(\)\-\_\+\=\,\.\?\/\;\:\'\"]+$/im;
 
-		if ($(this).attr('id') === 'name' || $(this).attr('id') === 'subject' || $(this).attr('id') === 'message') {
-			if (charRegEx.test($(this).val()) === false || $(this).val().length < 2) {
-				$(this).closest('.contactFormSection').addClass('error');
+		if ($(this).attr('id') === 'name') {
+			if ($(this).val().length === 0) {
+				$(this).closest('.contactFormSection').addClass('error blankError').removeClass('inputError');
+				$('#submitContactSection button').addClass('disabled').attr('disabled', true);
+			} else if (nameRegEx.test($(this).val()) === false) {
+				$(this).closest('.contactFormSection').addClass('error inputError').removeClass('blankError');
 				$('#submitContactSection button').addClass('disabled').attr('disabled', true);
 			} else {
-				$(this).closest('.contactFormSection').removeClass('error');
+				$(this).closest('.contactFormSection').removeClass('error inputError blankError');
 			}
 		}
 
 		if ($(this).attr('id') === 'email') {
-			if (emailRegEx.test($(this).val()) === false) {
-				$(this).closest('.contactFormSection').addClass('error');
+			if ($(this).val().length === 0) {
+				$(this).closest('.contactFormSection').addClass('error blankError').removeClass('inputError');
+				$('#submitContactSection button').addClass('disabled').attr('disabled', true);
+			} else if (emailRegEx.test($(this).val()) === false) {
+				$(this).closest('.contactFormSection').addClass('error inputError').removeClass('blankError');
 				$('#submitContactSection button').addClass('disabled').attr('disabled', true);
 			} else {
-				$(this).closest('.contactFormSection').removeClass('error');
+				$(this).closest('.contactFormSection').removeClass('error inputError blankError');
+			}
+		}
+
+		if ($(this).attr('id') === 'subject') {
+			if ($(this).val().length === 0) {
+				$(this).closest('.contactFormSection').addClass('error blankError').removeClass('inputError');
+				$('#submitContactSection button').addClass('disabled').attr('disabled', true);
+			} else if (subjectRegEx.test($(this).val()) === false) {
+				$(this).closest('.contactFormSection').addClass('error inputError').removeClass('blankError');
+				$('#submitContactSection button').addClass('disabled').attr('disabled', true);
+			} else {
+				$(this).closest('.contactFormSection').removeClass('error inputError blankError');
+			}
+		}
+
+		if ($(this).attr('id') === 'body') {
+			if ($(this).val().length === 0) {
+				$(this).closest('.contactFormSection').addClass('error blankError').removeClass('inputError');
+				$('#submitContactSection button').addClass('disabled').attr('disabled', true);
+			} else if (subjectRegEx.test($(this).val()) === false) {
+				$(this).closest('.contactFormSection').addClass('error inputError').removeClass('blankError');
+				$('#submitContactSection button').addClass('disabled').attr('disabled', true);
+			} else {
+				$(this).closest('.contactFormSection').removeClass('error inputError blankError');
 			}
 		}
 

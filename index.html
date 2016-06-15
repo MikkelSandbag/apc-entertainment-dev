@@ -82,6 +82,10 @@
 		</div>
 
 		<div id="calendar"></div>
+
+		<div class="bookingPopup">
+			
+		</div>
 	</section>
 
 	<section class="testimonialSection">
@@ -115,32 +119,39 @@
 	<section class="contactSection" id="contact">
 		<article class="sectionHeaderWrapper">
 			<h2>Contact</h2>
-			<form class="invalid" id="contactForm" action="sendForm.php" method="POST">
-				<div class="contactFormSection" id="nameContactSection">
-					<label for="name">Name</label>
-					<input type="text" name="name" id="name">
-					<p class="errorMessage">Please enter your name</p>
-				</div>
-				<div class="contactFormSection" id="emailContactSection">
-					<label for="email">Email</label>
-					<input type="email" name="email" id="email" autocomplete="email">
-					<p class="errorMessage">Please enter a valid email</p>
-				</div>
-				<div class="contactFormSection" id="subjectContactSection">
-					<label for="subject">Subject</label>
-					<input type="text" name="subject" id="subject">
-					<p class="errorMessage">Please enter a subject</p>
-				</div>
-				<div class="contactFormSection" id="messageContactSection">
-					<label for="body">Message</label>
-					<textarea name="body" id="body" rows="12"></textarea>
-					<p class="errorMessage">Please write a message</p>
-				</div>
-				<div class="contactFormSection" id="submitContactSection">
-					<button type="submit">Submit</button>
-				</div>
-			</form>
+
+			<p class="headerDescription">All fields are required.</p>
 		</article>
+
+		<form class="invalid" id="contactForm" action="sendForm.php" method="POST">
+			<div class="contactFormSection" id="nameContactSection">
+				<label for="name">Name</label>
+				<input type="text" name="name" id="name">
+				<p class="errorMessage blankError">Please enter your name.</p>
+				<p class="errorMessage inputError">Only alphabetical letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+			</div>
+			<div class="contactFormSection" id="emailContactSection">
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" autocomplete="email">
+				<p class="errorMessage blankError">Please enter a valid email.</p>
+				<p class="errorMessage inputError">Please make sure you entered an email in the proper format (i.e. myemail@example.com). Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+			</div>
+			<div class="contactFormSection" id="subjectContactSection">
+				<label for="subject">Subject</label>
+				<input type="text" name="subject" id="subject">
+				<p class="errorMessage blankError">Please enter a subject.</p>
+				<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+			</div>
+			<div class="contactFormSection" id="messageContactSection">
+				<label for="body">Message</label>
+				<textarea name="body" id="body" rows="12"></textarea>
+				<p class="errorMessage blankError">Please write a message.</p>
+				<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+			</div>
+			<div class="contactFormSection" id="submitContactSection">
+				<button type="submit">Submit</button>
+			</div>
+		</form>
 	</section>
 
 	<footer>
