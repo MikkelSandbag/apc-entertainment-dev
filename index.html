@@ -21,7 +21,7 @@
 		<div class="mobileMenuButton"></div>
 		<ul class="navInnerWrapper">
 			<li class="navItem"><a href="#services">Services</a></li>
-			<li class="navItem"><a href="#events">Events</a></li>
+			<li class="navItem"><a href="#booking">Booking</a></li>
 			<li class="navItem"><a href="#media">Media</a></li>
 			<li class="navItem"><a href="#contact">Contact</a></li>
 		</ul>
@@ -32,7 +32,7 @@
 		<div class="splashTextWrapper">
 			<h1>Lights. Music. Good Times.</h1>
 			<div class="ctaButtonOuterWrapper">
-				<div class="ctaButtonInnerWrapper"><a href="#events">Book Now</a></div>
+				<div class="ctaButtonInnerWrapper"><a href="#booking">Book Now</a></div>
 			</div>
 		</div>
 	</section>
@@ -66,9 +66,9 @@
 		<blockquote class="testimonialText">So many people came up to me afterward and told me that he was the best dj they had ever seen, he was the life of the whole party. I would hire him again in a heartbeat!<span class="testimonialByline">&ndash;Brittney</span></blockquote>
 	</section>
 
-	<section class="eventsSection" id="events">
+	<section class="bookingSection" id="booking">
 		<article class="sectionHeaderWrapper">
-			<h2>Events</h2>
+			<h2>Booking</h2>
 		</article>
 
 		<div class="mobileView">
@@ -83,8 +83,110 @@
 
 		<div id="calendar"></div>
 
-		<div class="bookingPopup">
-			
+		<div class="bookingPopupOverlay"></div>
+		<div class="bookingPopupOuterWrapper">
+			<div class="closeButton">+</div>
+			<div class="bookingPopupInnerWrapper">
+				<h2>Request a day</h2>
+
+				<p class="description">Only sections labeled with an asterisk (*) are required. However, more information upfront is better.</p>
+
+				<form class="invalid" id="eventForm" action="sendForm-event.php" method="POST">
+					<h3>Contact information</h3>
+
+					<!-- name -->
+					<div class="eventFormSection" id="eventFormSection-name">
+						<label for="custName">Name *</label>
+						<input type="text" name="custName" id="custName" autocomplete="name"required>
+						<p class="errorMessage blankError">Please enter your first and last name.</p>
+						<p class="errorMessage inputError">Only alphabetical letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+					</div>
+					<!-- email -->
+					<div class="eventFormSection" id="eventFormSection-email">
+						<label for="custEmail">Email *</label>
+						<input type="email" name="custEmail" id="custEmail" autocomplete="email" required>
+						<p class="errorMessage blankError">Please enter a valid email.</p>
+						<p class="errorMessage inputError">Please make sure you entered an email in the proper format (i.e. myemail@example.com). Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+					</div>
+					<!-- phone number -->
+					<div class="eventFormSection" id="eventFormSection-phone">
+						<label for="custPhone">Phone Number</label>
+						<input type="tel" name="custPhone" id="custPhone" autocomplete="tel">
+						<p class="errorMessage inputError">Only numbers and limited punctuation are allowed. Sorry for the inconvenience.</p>
+					</div>
+					<!-- address line 1 -->
+					<div class="eventFormSection" id="eventFormSection-addressLine1">
+						<label for="custAddress-line1">Address Line 1</label>
+						<input type="text" name="custAddress-line1" id="custAddress-line1" autocomplete="address-line1">
+						<p class="errorMessage inputError">Only alphanumeric letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+					</div>
+					<!-- address line 2 -->
+					<div class="eventFormSection" id="eventFormSection-addressLine2">
+						<label for="custAddress-line2">Address Line 2</label>
+						<input type="text" name="custAddress-line2" id="custAddress-line2" autocomplete="address-line2">
+						<p class="errorMessage inputError">Only alphanumeric letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+					</div>
+					<!-- city -->
+					<div class="eventFormSection" id="eventFormSection-city">
+						<label for="custCity">City</label>
+						<input type="text" name="custCity" id="custCity">
+						<p class="errorMessage inputError">Only alphabetical letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+					</div>
+					<!-- state -->
+					<div class="eventFormSection" id="eventFormSection-state">
+						<label for="custState">State</label>
+						<input type="text" name="custState" id="custState" maxlength="2">
+						<p class="errorMessage inputError">Only two alphabetical letters are allowed. Sorry for the inconvenience.</p>
+					</div>
+					<!-- zip -->
+					<div class="eventFormSection" id="eventFormSection-zip">
+						<label for="custZip">Zip Code</label>
+						<input type="text" name="custZip" id="custZip" autocomplete="postal-code" maxlength="5">
+						<p class="errorMessage inputError">Only numbers are allowed. Sorry for the inconvenience.</p>
+					</div>
+					<h3>Event information</h3>
+					<!-- name of event -->
+					<div class="eventFormSection" id="eventFormSection-eventDesc">
+						<label for="eventDesc">Event Description</label>
+						<input type="text" name="eventDesc" id="eventDesc">
+						<p class="errorMessage inputError">Only alphabetical letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+					</div>
+					<!-- day of event -->
+					<div class="eventFormSection" id="eventFormSection-eventDay">
+						<label for="eventDay">Event Day *</label>
+						<input type="date" name="eventDay" id="eventDay" required>
+						<p class="errorMessage blankError">Please enter the day of the event.</p>
+						<p class="errorMessage inputError">Only numbers and limited punctuation are allowed. Sorry for the inconvenience.</p>
+					</div>
+					<!-- start time of event -->
+					<div class="eventFormSection" id="eventFormSection-eventTimeStart">
+						<label for="eventTimeStart">Event Start Time</label>
+						<input type="time" name="eventTimeStart" id="eventTimeStart">
+						<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+					</div>
+					<!-- start time of event -->
+					<div class="eventFormSection" id="eventFormSection-eventTimeEnd">
+						<label for="eventTimeEnd">Event End Time</label>
+						<input type="time" name="eventTimeEnd" id="eventTimeEnd">
+						<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+					</div>
+					<!-- location of event -->
+					<div class="eventFormSection" id="eventFormSection-eventLocation">
+						<label for="eventLocation">Event Location</label>
+						<input type="text" name="eventLocation" id="eventLocation" placeholder="Venue Name, City, State">
+						<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+					</div>
+					<!-- additional notes -->
+					<div class="eventFormSection" id="eventFormSection-notes">
+						<label for="eventNotes">Additional Notes</label>
+						<textarea name="eventNotes" id="eventNotes" rows="12"></textarea>
+						<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+					</div>
+					<div class="eventFormSection" id="submitEventSection">
+						<button type="submit">Submit</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</section>
 
@@ -126,25 +228,25 @@
 		<form class="invalid" id="contactForm" action="sendForm.php" method="POST">
 			<div class="contactFormSection" id="nameContactSection">
 				<label for="name">Name</label>
-				<input type="text" name="name" id="name">
+				<input type="text" name="name" id="name" autocomplete="name" required>
 				<p class="errorMessage blankError">Please enter your name.</p>
 				<p class="errorMessage inputError">Only alphabetical letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
 			</div>
 			<div class="contactFormSection" id="emailContactSection">
 				<label for="email">Email</label>
-				<input type="email" name="email" id="email" autocomplete="email">
+				<input type="email" name="email" id="email" autocomplete="email" required>
 				<p class="errorMessage blankError">Please enter a valid email.</p>
 				<p class="errorMessage inputError">Please make sure you entered an email in the proper format (i.e. myemail@example.com). Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
 			</div>
 			<div class="contactFormSection" id="subjectContactSection">
 				<label for="subject">Subject</label>
-				<input type="text" name="subject" id="subject">
+				<input type="text" name="subject" id="subject" required>
 				<p class="errorMessage blankError">Please enter a subject.</p>
 				<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
 			</div>
 			<div class="contactFormSection" id="messageContactSection">
 				<label for="body">Message</label>
-				<textarea name="body" id="body" rows="12"></textarea>
+				<textarea name="body" id="body" rows="12" required></textarea>
 				<p class="errorMessage blankError">Please write a message.</p>
 				<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
 			</div>
