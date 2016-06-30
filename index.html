@@ -12,6 +12,25 @@
 	<!-- main styles - master override -->
 	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
+	<!-- favicon -->
+	<link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="images/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
 	<!-- Font Awesome -->
 	<script src="https://use.fontawesome.com/380ccfc68c.js"></script>
 </head>
@@ -71,122 +90,117 @@
 			<h2>Booking</h2>
 		</article>
 
-		<div class="mobileView">
-			<div class="ctaButtonOuterWrapper">
-			<div class="ctaButtonInnerWrapper"><a href="#">Check Availability</a></div>
-		</div>
-		</div>
-
 		<div class="ctaButtonOuterWrapper">
-			<div class="ctaButtonInnerWrapper"><a href="#">Book Now</a></div>
+			<div class="ctaButtonInnerWrapper"><a href="#bookingFormAnchor">Book Now</a></div>
 		</div>
 
 		<div id="calendar"></div>
 
-		<div class="bookingPopupOverlay"></div>
-		<div class="bookingPopupOuterWrapper">
-			<div class="closeButton">+</div>
-			<div class="bookingPopupInnerWrapper">
-				<h2>Request a day</h2>
+		<div id="bookingFormAnchor">
+			<div class="bookingFormOuterWrapper">
+				<div class="bookingFormInnerWrapper">
+					<h2>Request a day</h2>
 
-				<p class="description">Only sections labeled with an asterisk (*) are required. However, more information upfront is better.</p>
+					<p class="description">Only sections labeled with an asterisk (*) are required. However, more information upfront is better.</p>
 
-				<form class="invalid" id="eventForm" action="sendForm-event.php" method="POST">
-					<h3>Contact information</h3>
+					<form class="invalid" id="eventForm" action="sendForm-event.php" method="POST">
+						<h3>Contact information</h3>
 
-					<!-- name -->
-					<div class="eventFormSection" id="eventFormSection-name">
-						<label for="custName">Name *</label>
-						<input type="text" name="custName" id="custName" autocomplete="name"required>
-						<p class="errorMessage blankError">Please enter your first and last name.</p>
-						<p class="errorMessage inputError">Only alphabetical letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
-					</div>
-					<!-- email -->
-					<div class="eventFormSection" id="eventFormSection-email">
-						<label for="custEmail">Email *</label>
-						<input type="email" name="custEmail" id="custEmail" autocomplete="email" required>
-						<p class="errorMessage blankError">Please enter a valid email.</p>
-						<p class="errorMessage inputError">Please make sure you entered an email in the proper format (i.e. myemail@example.com). Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
-					</div>
-					<!-- phone number -->
-					<div class="eventFormSection" id="eventFormSection-phone">
-						<label for="custPhone">Phone Number</label>
-						<input type="tel" name="custPhone" id="custPhone" autocomplete="tel">
-						<p class="errorMessage inputError">Only numbers and limited punctuation are allowed. Sorry for the inconvenience.</p>
-					</div>
-					<!-- address line 1 -->
-					<div class="eventFormSection" id="eventFormSection-addressLine1">
-						<label for="custAddress-line1">Address Line 1</label>
-						<input type="text" name="custAddress-line1" id="custAddress-line1" autocomplete="address-line1">
-						<p class="errorMessage inputError">Only alphanumeric letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
-					</div>
-					<!-- address line 2 -->
-					<div class="eventFormSection" id="eventFormSection-addressLine2">
-						<label for="custAddress-line2">Address Line 2</label>
-						<input type="text" name="custAddress-line2" id="custAddress-line2" autocomplete="address-line2">
-						<p class="errorMessage inputError">Only alphanumeric letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
-					</div>
-					<!-- city -->
-					<div class="eventFormSection" id="eventFormSection-city">
-						<label for="custCity">City</label>
-						<input type="text" name="custCity" id="custCity">
-						<p class="errorMessage inputError">Only alphabetical letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
-					</div>
-					<!-- state -->
-					<div class="eventFormSection" id="eventFormSection-state">
-						<label for="custState">State</label>
-						<input type="text" name="custState" id="custState" maxlength="2">
-						<p class="errorMessage inputError">Only two alphabetical letters are allowed. Sorry for the inconvenience.</p>
-					</div>
-					<!-- zip -->
-					<div class="eventFormSection" id="eventFormSection-zip">
-						<label for="custZip">Zip Code</label>
-						<input type="text" name="custZip" id="custZip" autocomplete="postal-code" maxlength="5">
-						<p class="errorMessage inputError">Only numbers are allowed. Sorry for the inconvenience.</p>
-					</div>
-					<h3>Event information</h3>
-					<!-- name of event -->
-					<div class="eventFormSection" id="eventFormSection-eventDesc">
-						<label for="eventDesc">Event Description</label>
-						<input type="text" name="eventDesc" id="eventDesc">
-						<p class="errorMessage inputError">Only alphabetical letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
-					</div>
-					<!-- day of event -->
-					<div class="eventFormSection" id="eventFormSection-eventDay">
-						<label for="eventDay">Event Day *</label>
-						<input type="date" name="eventDay" id="eventDay" required>
-						<p class="errorMessage blankError">Please enter the day of the event.</p>
-						<p class="errorMessage inputError">Only numbers and limited punctuation are allowed. Sorry for the inconvenience.</p>
-					</div>
-					<!-- start time of event -->
-					<div class="eventFormSection" id="eventFormSection-eventTimeStart">
-						<label for="eventTimeStart">Event Start Time</label>
-						<input type="time" name="eventTimeStart" id="eventTimeStart">
-						<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
-					</div>
-					<!-- start time of event -->
-					<div class="eventFormSection" id="eventFormSection-eventTimeEnd">
-						<label for="eventTimeEnd">Event End Time</label>
-						<input type="time" name="eventTimeEnd" id="eventTimeEnd">
-						<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
-					</div>
-					<!-- location of event -->
-					<div class="eventFormSection" id="eventFormSection-eventLocation">
-						<label for="eventLocation">Event Location</label>
-						<input type="text" name="eventLocation" id="eventLocation" placeholder="Venue Name, City, State">
-						<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
-					</div>
-					<!-- additional notes -->
-					<div class="eventFormSection" id="eventFormSection-notes">
-						<label for="eventNotes">Additional Notes</label>
-						<textarea name="eventNotes" id="eventNotes" rows="12"></textarea>
-						<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
-					</div>
-					<div class="eventFormSection" id="submitEventSection">
-						<button type="submit">Submit</button>
-					</div>
-				</form>
+						<!-- name -->
+						<div class="eventFormSection" id="eventFormSection-name">
+							<label for="custName">Name *</label>
+							<input type="text" name="custName" id="custName" autocomplete="name"required>
+							<p class="errorMessage blankError">Please enter your first and last name.</p>
+							<p class="errorMessage inputError">Only alphabetical letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+						</div>
+						<!-- email -->
+						<div class="eventFormSection" id="eventFormSection-email">
+							<label for="custEmail">Email *</label>
+							<input type="email" name="custEmail" id="custEmail" autocomplete="email" required>
+							<p class="errorMessage blankError">Please enter a valid email.</p>
+							<p class="errorMessage inputError">Please make sure you entered an email in the proper format (i.e. myemail@example.com). Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+						</div>
+						<!-- phone number -->
+						<div class="eventFormSection" id="eventFormSection-phone">
+							<label for="custPhone">Phone Number</label>
+							<input type="tel" name="custPhone" id="custPhone" autocomplete="tel">
+							<p class="errorMessage inputError">Only numbers and limited punctuation are allowed. Sorry for the inconvenience.</p>
+						</div>
+						<!-- address line 1 -->
+						<div class="eventFormSection" id="eventFormSection-addressLine1">
+							<label for="custAddress-line1">Address Line 1</label>
+							<input type="text" name="custAddress-line1" id="custAddress-line1" autocomplete="address-line1">
+							<p class="errorMessage inputError">Only alphanumeric letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+						</div>
+						<!-- address line 2 -->
+						<div class="eventFormSection" id="eventFormSection-addressLine2">
+							<label for="custAddress-line2">Address Line 2</label>
+							<input type="text" name="custAddress-line2" id="custAddress-line2" autocomplete="address-line2">
+							<p class="errorMessage inputError">Only alphanumeric letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+						</div>
+						<!-- city -->
+						<div class="eventFormSection" id="eventFormSection-city">
+							<label for="custCity">City</label>
+							<input type="text" name="custCity" id="custCity">
+							<p class="errorMessage inputError">Only alphabetical letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+						</div>
+						<!-- state -->
+						<div class="eventFormSection" id="eventFormSection-state">
+							<label for="custState">State</label>
+							<input type="text" name="custState" id="custState" maxlength="2">
+							<p class="errorMessage inputError">Only two alphabetical letters are allowed. Sorry for the inconvenience.</p>
+						</div>
+						<!-- zip -->
+						<div class="eventFormSection" id="eventFormSection-zip">
+							<label for="custZip">Zip Code</label>
+							<input type="text" name="custZip" id="custZip" autocomplete="postal-code" maxlength="5">
+							<p class="errorMessage inputError">Only numbers are allowed. Sorry for the inconvenience.</p>
+						</div>
+						<h3>Event information</h3>
+						<!-- name of event -->
+						<div class="eventFormSection" id="eventFormSection-eventDesc">
+							<label for="eventDesc">Event Description</label>
+							<input type="text" name="eventDesc" id="eventDesc">
+							<p class="errorMessage inputError">Only alphabetical letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+						</div>
+						<!-- day of event -->
+						<div class="eventFormSection" id="eventFormSection-eventDay">
+							<label for="eventDay">Event Day *</label>
+							<input type="date" name="eventDay" id="eventDay" required>
+							<p class="errorMessage blankError">Please enter the day of the event.</p>
+							<p class="errorMessage inputError">Only numbers and limited punctuation are allowed. Sorry for the inconvenience.</p>
+						</div>
+						<!-- start time of event -->
+						<div class="eventFormSection" id="eventFormSection-eventTimeStart">
+							<label for="eventTimeStart">Event Start Time</label>
+							<input type="time" name="eventTimeStart" id="eventTimeStart">
+							<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+						</div>
+						<!-- start time of event -->
+						<div class="eventFormSection" id="eventFormSection-eventTimeEnd">
+							<label for="eventTimeEnd">Event End Time</label>
+							<input type="time" name="eventTimeEnd" id="eventTimeEnd">
+							<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+						</div>
+						<!-- location of event -->
+						<div class="eventFormSection" id="eventFormSection-eventLocation">
+							<label for="eventLocation">Event Location</label>
+							<input type="text" name="eventLocation" id="eventLocation" placeholder="Venue Name, City, State">
+							<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+						</div>
+						<!-- additional notes -->
+						<div class="eventFormSection" id="eventFormSection-notes">
+							<label for="eventNotes">Additional Notes</label>
+							<textarea name="eventNotes" id="eventNotes" rows="12"></textarea>
+							<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
+						</div>
+						<div class="eventFormSection" id="submitEventSection">
+							<button type="submit">Submit</button>
+						</div>
+					</form>
+				</div>
 			</div>
+			
 		</div>
 	</section>
 
@@ -257,15 +271,16 @@
 	</section>
 
 	<footer>
-		<p class="copyright">APC Entertainment &copy; 2016 All rights reserved</p>
+		<p class="copyright">APC Entertainment &copy; <script type="text/javascript">
+        var today = new Date()
+        var year = today.getFullYear()
+        document.write(year)
+        </script> All rights reserved</p>
 		<p class="byline">Site designed by <a href="http://mikkelsandberg.com" target="_blank">Mikkel Sandberg</a></p>
 	</footer>
 	
 	<!-- jQuery -->
 	<script src="js/jquery-2.2.1.min.js"></script>
-
-	<!-- live reload script -->
-	<script src="js/live-reload.js"></script>
 
 	<!-- Smoothscroll: https://css-tricks.com/snippets/jquery/smooth-scrolling/ -->
 	<script src="js/smooth-scroll.js"></script>

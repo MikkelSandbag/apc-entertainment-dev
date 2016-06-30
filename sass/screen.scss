@@ -54,10 +54,6 @@ body {
 	}
 	color: #fff;
 	background-color: $pageBackground;
-
-	&.showPopup {
-		overflow: hidden;
-	}
 }
 
 section > * {
@@ -86,6 +82,7 @@ section > * {
 
 		#homeIcon {
 			width: 92px;
+			height: 100%;
 		}
 
 	.mobileMenuButton {
@@ -345,6 +342,10 @@ section > * {
 			font-size: 1.5em;
 			padding: 5px;
 		}
+
+		.fc-day-grid-event {
+			cursor: default;
+		}
 	}
 
 	.mobileView {
@@ -372,55 +373,22 @@ section > * {
 	}
 }
 
-.bookingPopupOverlay {
-	display: none;
-	background-color: rgba(0,0,0,0.8);
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	max-width: none;
-	width: 100vw;
-	height: 100vh;
-	z-index: 100;
-	cursor: pointer;
-
-	&.showPopup {
-		display: block;
-	}
-}
-
-.closeButton {
-	font-size: 2em;
-	font-weight: 300;
-	line-height: 0.5em;
-	padding: $padding * 0.5;
-	position: absolute;
-	right: $padding * 2;
-	top: $padding * 2;
-	transform: rotate(45deg);
-	cursor: pointer;
-}
-
-	.bookingPopupOuterWrapper {
+	#bookingFormAnchor {
 		display: none;
-		background-color: $pageBackground;
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		max-width: 768px;
-		width: 70vw;
-		height: 80vh;
-		box-sizing: border-box;
-		overflow: auto;
-		z-index: 100;
+		padding-top: $padding * 7;
 
 		&.showPopup {
 			display: block;
 		}
+	}
 
-		.bookingPopupInnerWrapper {
+	.bookingFormOuterWrapper {
+		border: 1px solid #fff;
+		width: 80vw;
+		max-width: 540px;
+		margin: $padding * 5 auto 0; 		
+
+		.bookingFormInnerWrapper {
 			padding: 50px;
 		}
 
@@ -738,21 +706,35 @@ footer {
 	}
 
 	#booking {
-		.mobileView {
-			display: block;
-		}
-
 		#calendar {
-			visibility: hidden;
-			width: 0;
-			height: 0;
-			margin: 0;
+			width: 80%;
+
+			.fc-toolbar {
+				button.fc-button {
+					height: 2em;
+
+					.fc-icon {
+						width: 2em;
+						height: 2em;
+
+						&:after {
+							font-size: 2em;
+						}
+					}	
+				}
+
+				h2 {
+					font-size: 2em;
+				}
+			}
+
+			.fc-day-header {
+				font-size: 1em;
+				padding: 5px;
+			}
 		}
 
-		.bookingPopupOuterWrapper {
-			width: 90vw;
-			height: 90vh;
-
+		.bookingFormOuterWrapper {
 			#eventForm {
 				width: 100%;
 			}
@@ -776,6 +758,47 @@ footer {
 				&:before, &:after {
 					display: none;
 				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	#booking {
+		#calendar {
+			.fc-toolbar {
+				button.fc-button {
+					height: 1.25em;
+
+					.fc-icon {
+						width: 1.25em;
+						height: 1.25em;
+
+						&:after {
+							font-size: 1.25em;
+						}
+					}	
+				}
+
+				h2 {
+					font-size: 1.25em;
+				}
+			}
+		}
+	}
+
+	.bookingFormOuterWrapper {
+		.bookingFormInnerWrapper {
+			padding: $padding * 2;
+		}
+	}
+
+	#contactForm,
+	#eventForm {
+		#submitContactSection,
+		#submitEventSection {
+			button {
+				font-size: 1.2em;
 			}
 		}
 	}
