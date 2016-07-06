@@ -8,7 +8,11 @@
   <!-- Page title (mandatory) -->
 	<title>APC Entertainment | Lighting, Sound, and DJ Services | Orange County, CA</title>
 
-	<!-- all styles -->
+	<!-- lightbox styles -->
+	<link rel="stylesheet" href="stylesheets/lightbox.min.css">
+	<!-- calendar styles -->
+	<link rel="stylesheet" href="stylesheets/fullcalendar.min.css">
+	<!-- main styles - master overrides -->
 	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
 	<!-- These meta tags are recognised by Google -->
@@ -82,7 +86,7 @@
 
 	<section class="testimonialSection">
 		<div class="testimonialBackgroundWrapper" id="testimonialBackgroundWrapper1"></div>
-		<blockquote class="testimonialText">So many people came up to me afterward and told me that he was the best dj they had ever seen, he was the life of the whole party. I would hire him again in a heartbeat!<span class="testimonialByline">&ndash;Brittney <span class="testimonialLink">(<a href="https://www.weddingwire.com/reviews/apc-entertainment-allan-cason-orange/fb93299ba25a11ff.html" target="_blank">Wedding Wire</a>)</span></span></blockquote>
+		<blockquote class="testimonialText">So many people came up to me afterward and told me that he was the best dj they had ever seen, he was the life of the whole party. I would hire him again in a heartbeat!<span class="testimonialByline">&ndash;Brittney</span></blockquote>
 	</section>
 
 	<section class="bookingSection" id="booking">
@@ -206,7 +210,7 @@
 
 	<section class="testimonialSection">
 		<div class="testimonialBackgroundWrapper" id="testimonialBackgroundWrapper2"></div>
-		<blockquote class="testimonialText">He was our wedding DJ and sound guy for an outdoor wedding. He is a great entertainer, has a great speaking voice, and his prices are reasonable. I highly recommend him.<span class="testimonialByline">&ndash;Edwin <span class="testimonialLink">(<a href="http://www.yelp.com/biz/apc-entertainment-orange" target="_blank">Yelp</a>)</span></span></blockquote>
+		<blockquote class="testimonialText">He helped our wedding run so smoothly, we were able to relax knowing he would entertain our guests while we took our photos etc. He is so friendly, funny, and professional, we could not recommend him higher!</blockquote>
 	</section>
 
 	<section class="mediaSection" id="media">
@@ -229,40 +233,37 @@
 
 	<section class="testimonialSection">
 		<div class="testimonialBackgroundWrapper" id="testimonialBackgroundWrapper3"></div>
-		<blockquote class="testimonialText">He went above and beyond to make sure our wedding day was perfect. Our guests absolutely loved him and are already asking to book him for their wedding day. Allan was so much fun!<span class="testimonialByline">&ndash;Nicole <span class="testimonialLink">(<a href="https://www.weddingwire.com/reviews/apc-entertainment-allan-cason-orange/fb93299ba25a11ff.html" target="_blank">Wedding Wire</a>)</span></span></span></blockquote>
+		<blockquote class="testimonialText">He went above and beyond to make sure our wedding day was perfect. Our guests absolutely loved him and are already asking to book him for their wedding day. Allan was so much fun!<span class="testimonialByline">&ndash;Nicole</span></blockquote>
 	</section>
 
 	<section class="contactSection" id="contact">
 		<article class="sectionHeaderWrapper">
 			<h2>Contact</h2>
-			<h3>Find Us On</h3>
-			<div class="socialMediaWrapper">
-				<a href="https://www.facebook.com/APCEntertainment/" target="_blank"><i class="fa fa-facebook"></i></a>
-				<a href="https://twitter.com/OrangeCounty_DJ" target="_blank"><i class="fa fa-twitter"></i></a>
-			</div>
+
+			<p class="headerDescription">All fields are required.</p>
 		</article>
 
 		<form class="invalid" id="contactForm" action="sendForm.php" method="POST">
 			<div class="contactFormSection" id="nameContactSection">
-				<label for="name">Name *</label>
+				<label for="name">Name</label>
 				<input type="text" name="name" id="name" autocomplete="name" required>
 				<p class="errorMessage blankError">Please enter your name.</p>
 				<p class="errorMessage inputError">Only alphabetical letters and limited punctuation are allowed. Sorry for the inconvenience.</p>
 			</div>
 			<div class="contactFormSection" id="emailContactSection">
-				<label for="email">Email *</label>
+				<label for="email">Email</label>
 				<input type="email" name="email" id="email" autocomplete="email" required>
 				<p class="errorMessage blankError">Please enter a valid email.</p>
 				<p class="errorMessage inputError">Please make sure you entered an email in the proper format (i.e. myemail@example.com). Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
 			</div>
 			<div class="contactFormSection" id="subjectContactSection">
-				<label for="subject">Subject *</label>
+				<label for="subject">Subject</label>
 				<input type="text" name="subject" id="subject" required>
 				<p class="errorMessage blankError">Please enter a subject.</p>
 				<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
 			</div>
 			<div class="contactFormSection" id="messageContactSection">
-				<label for="body">Message *</label>
+				<label for="body">Message</label>
 				<textarea name="body" id="body" rows="12" required></textarea>
 				<p class="errorMessage blankError">Please write a message.</p>
 				<p class="errorMessage inputError">Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.</p>
@@ -282,15 +283,32 @@
 		<p class="byline">Site designed by <a href="http://mikkelsandberg.com" target="_blank">Mikkel Sandberg</a></p>
 	</footer>
 
-	<!-- <script src="js/live-reload.js"></script> -->
+	<!-- jQuery -->
+	<script src="js/jquery-2.2.1.min.js"></script>
 
-	<!-- all scripts - minified -->
+	<!-- live reload script -->
+	<script src="js/live-reload.js"></script>
+
+	<!-- Smoothscroll: https://css-tricks.com/snippets/jquery/smooth-scrolling/ -->
+	<script src="js/smooth-scroll.js"></script>
+
+	<!-- lightbox: http://lokeshdhakar.com/projects/lightbox2/ -->
+	<script src="js/lightbox.min.js"></script>
+
+	<!-- calendar: http://fullcalendar.io/ -->
+	<script src="js/moment.min.js"></script>
+	<script src="js/fullcalendar.min.js"></script>
+	<script src="js/gcal.js"></script>
+	<!-- initialize calendar -->
+	<script src="js/calendar-init.js"></script>
+
+	<!-- Main page script - minified -->
 	<script src="js/page.min.js"></script>
 
 	<!-- Font Awesome -->
 	<script src="https://use.fontawesome.com/380ccfc68c.js"></script>
 
-	<!-- Typekit Fonts -->
+	<!-- Fonts -->
 	<script src="https://use.typekit.net/hqg4hfr.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){}</script>
 </body>
