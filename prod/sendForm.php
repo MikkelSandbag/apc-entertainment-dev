@@ -36,7 +36,7 @@
 
 	<div class="messageWrapper">
 		<?php 
-			$recipient = 'admin@mikkelsandberg.com';
+			$recipient = 'allan@apcentertainment.net';
 			$name = $_POST['name'];
 			$email = $_POST['email'];
 			$subject = $_POST['subject'];
@@ -87,7 +87,11 @@
 	</div>
 
 	<footer class="formPageFooter">
-		<p class="copyright">APC Entertainment &copy; 2016 All rights reserved</p>
+		<p class="copyright">APC Entertainment &copy; <script type="text/javascript" async>
+        var today = new Date()
+        var year = today.getFullYear()
+        document.write(year)
+        </script> All rights reserved</p>
 		<p class="byline">Site designed by <a href="http://mikkelsandberg.com" target="_blank">Mikkel Sandberg</a></p>
 	</footer>
 

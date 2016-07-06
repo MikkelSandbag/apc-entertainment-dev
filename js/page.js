@@ -1,3 +1,8 @@
+lightbox.option({
+	'wrapAround': true,
+	'disableScrolling': true
+});
+
 /***** Begin mobile nav menu *****/
 $('.mobileMenuButton').click(function() {
 	$(this).next('.navInnerWrapper').toggleClass('show');
