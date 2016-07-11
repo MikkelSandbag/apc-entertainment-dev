@@ -27762,10 +27762,10 @@ var ww = window.innerWidth;
 var view;
 var getWindowWidth = function() {
   return window.innerWidth;
-}
+};
 var getView = function() {
    return (ww < 768) ? 'basicWeek' : 'month';
-}
+};
   
 $(document).ready(function() {
   $('#calendar').fullCalendar({

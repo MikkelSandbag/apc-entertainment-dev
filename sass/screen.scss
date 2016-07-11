@@ -1490,6 +1490,17 @@ $footerBackground: #0d0d0d;
 $navHeight: 70px;
 $padding: 10px;
 
+body {
+	font: {
+		family: "futura-pt", sans-serif;
+		size: 16px;
+		weight: normal;
+	}
+	color: #fff;
+	background-color: $pageBackground;
+	-webkit-font-smoothing: antialiased;
+}
+
 //typography
 h1 {
 	font-size: 4.5em;
@@ -1507,23 +1518,10 @@ h3 {
 p,
 blockquote,
 label {
-	font: {
-		family: "baskerville-urw", serif;
-		size: 1.25em;
-	}
+	font-family: "bodoni-urw", sans-serif;
+	font-weight: 400;
+	font-size: 1.3em;
 	line-height: 1.25em;
-	word-spacing: 1px;
-	letter-spacing: 1px;
-}
-
-body {
-	font: {
-		family: "futura-pt", sans-serif;
-		size: 16px;
-		weight: normal;
-	}
-	color: #fff;
-	background-color: $pageBackground;
 }
 
 section > * {
@@ -1638,7 +1636,7 @@ section > * {
 .sectionHeaderWrapper {
 	padding-top: ($padding * 3) + $navHeight;
 	margin-bottom: $padding * 4;
-	width: 80%;
+	width: 50%;
 	text-align: center;
 
 	.headerDescription {
@@ -1887,31 +1885,6 @@ section > * {
 				text-transform: capitalize;
 				margin: $padding * 5 0 $padding * 3;
 			}
-
-			label {
-				font-size: 1.5em;
-				float: none;
-				width: 100%; 
-			}
-
-			input {
-				font-size: 1.4em;
-				width: 100%;
-			}
-
-			#eventFormSection-notes {
-				margin-top: $padding * 4;
-			}
-
-			textarea {
-				font-size: 1.4em;
-				width: 100%;
-				margin-top: 1em;
-			}
-
-			#submitEventSection {
-				margin-left: 0;
-			}
 		}
 	}
 
@@ -1969,8 +1942,8 @@ section > * {
 
 #contactForm,
 #eventForm {
-	width: 50%;
-	margin: ($padding * 5) auto ($padding * 5) 20%;
+	width: 33%;
+	margin: ($padding * 5) auto;
 
 	.contactFormSection,
 	.eventFormSection {
@@ -2007,15 +1980,9 @@ section > * {
 		}
 	}
 
-	#messageContactSection,
-	#eventFormSection-notes {
-		margin-top: $padding * 10;
-	}
-
 	#submitContactSection,
 	#submitEventSection {
 		text-align: center;
-		margin-left: 20%;
 
 		button {
 			font-family: "baskerville-urw", serif;
@@ -2041,23 +2008,22 @@ section > * {
 
 	label {
 		display: block;
-		font-size: 1.9em;
+		font-size: 1.5em;
 		line-height: 1em;
-		float: left;
-		width: 20%;
 	}
 
 	input,
 	textarea {
 		font-family: "futura-pt", sans-serif;
-		font-size: 1.6em;
+		font-size: 1.4em;
 		line-height: normal;
 		color: #fff;
 		background: none;
 		border: none;
 		border-bottom: 2px solid #fff;
+		border-radius: 0;
 		padding: 0;
-		width: 80%;
+		width: 100%;
 		box-sizing: border-box;
 
 		&:focus {
@@ -2069,6 +2035,7 @@ section > * {
 		resize: none;
 		border: 2px solid #fff;
 		padding: $padding / 2;
+		margin-top: $padding * 2;
 	}
 }
 
@@ -2153,6 +2120,11 @@ footer {
 			}
 		}
 	}
+
+	#contactForm,
+	#eventForm {
+		width: 50%;
+	}
 }
 
 @media only screen and (max-width: 767px) {
@@ -2199,6 +2171,10 @@ footer {
 				font-size: 1.5em;
 			}
 		}
+
+	.sectionHeaderWrapper {
+		width: 80%;
+	}
 
 	.servicesBlock {
 		flex: 1 0 100%;
