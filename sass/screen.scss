@@ -1475,15 +1475,29 @@ body.lb-disable-scrolling {
 
 @import "compass/reset";
 
-// variables
+/*
+	
+	                        #           #       ##
+	                                    #        #
+	 #   #   ###   # ##    ##     ###   # ##     #     ###    ###
+	 #   #      #  ##  #    #        #  ##  #    #    #   #  #
+	  # #    ####  #        #     ####  #   #    #    #####   ###
+	  # #   #   #  #        #    #   #  ##  #    #    #          #
+	   #     ####  #       ###    ####  # ##    ###    ###   ####
+	
+	
+ */
 $pageBackground: #252525;
 $navBackground: #1a1a1a;
 $ctaButton: #00a651;
 $ctaButtonAccent: #00803e;
 $sectionHeader1: #ff7d7d;
-$sectionHeader2: #7cadff;
-$sectionHeader3: #be7dff;
-$sectionHeader4: #7dff7d;
+$sectionHeader2: #7dff7d;
+$sectionHeader3: #7cadff;
+$sectionHeader4: #be7dff;
+$sectionHeader5: #fff67d;
+$formButton: $sectionHeader2;
+$linkColor: $sectionHeader3;
 $footerBackground: #0d0d0d;
 
 //for calculations
@@ -1501,7 +1515,18 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
-//typography
+/*
+	
+	  #                                                      #
+	  #                                                      #
+	 ####   #   #  # ##    ###    ## #  # ##    ###   # ##   # ##   #   #
+	  #     #   #  ##  #  #   #  #  #   ##  #      #  ##  #  ##  #  #   #
+	  #     #  ##  ##  #  #   #   ##    #       ####  ##  #  #   #  #  ##
+	  #  #   ## #  # ##   #   #  #      #      #   #  # ##   #   #   ## #
+	   ##       #  #       ###    ###   #       ####  #      #   #      #
+	        #   #  #             #   #                #             #   #
+	         ###   #              ###                 #              ###
+ */
 h1 {
 	font-size: 4.5em;
 	text-transform: uppercase;
@@ -1518,17 +1543,80 @@ h3 {
 p,
 blockquote,
 label {
-	font-family: "bodoni-urw", sans-serif;
-	font-weight: 400;
+	font-family: "baskerville-urw",sans-serif;
+	font-style: italic;
+	font-weight: 700;
 	font-size: 1.3em;
 	line-height: 1.25em;
+	letter-spacing: 1px;
 }
 
+/*
+	
+	                                            ##
+	                                             #
+	  ## #   ###   # ##    ###   # ##    ###     #
+	 #  #   #   #  ##  #  #   #  ##  #      #    #
+	  ##    #####  #   #  #####  #       ####    #
+	 #      #      #   #  #      #      #   #    #
+	  ###    ###   #   #   ###   #       ####   ###
+	 #   #
+	  ###
+ */
 section > * {
 	max-width: 1280px;
 	margin: 0 auto;
 }
 
+.sectionHeaderWrapper {
+	padding-top: ($padding * 3) + $navHeight;
+	margin-bottom: $padding * 4;
+	width: 50%;
+	text-align: center;
+
+	.headerDescription {
+		margin-top: $padding * 2;
+	}
+}
+
+#services {
+	h2 {
+		color: $sectionHeader1;
+	}
+}
+#pricing {
+	h2 {
+		color: $sectionHeader2;
+	}
+}
+#booking {
+	h2 {
+		color: $sectionHeader3;
+	}
+}
+#media {
+	h2 {
+		color: $sectionHeader4;
+	}
+}
+#contact {
+	h2 {
+		color: $sectionHeader5;
+	}
+}
+
+/*
+	
+	
+	
+	 # ##    ###   #   #
+	 ##  #      #  #   #
+	 #   #   ####   # #
+	 #   #  #   #   # #
+	 #   #   ####    #
+	
+	
+ */
 .navOuterWrapper {
 	position: fixed;
 	top: 0;
@@ -1583,6 +1671,18 @@ section > * {
 		}
 	}
 
+/*
+	
+	                ##                  #
+	                 #                  #
+	  ###   # ##     #     ###    ###   # ##
+	 #      ##  #    #        #  #      ##  #
+	  ###   ##  #    #     ####   ###   #   #
+	     #  # ##     #    #   #      #  #   #
+	 ####   #       ###    ####  ####   #   #
+	        #
+	        #
+ */
 .splashBackgroundWrapper {
 	width: 100%;
 	max-width: none;
@@ -1633,47 +1733,24 @@ section > * {
 			}
 		}
 
-.sectionHeaderWrapper {
-	padding-top: ($padding * 3) + $navHeight;
-	margin-bottom: $padding * 4;
-	width: 50%;
-	text-align: center;
-
-	.headerDescription {
-		margin-top: $padding * 2;
-	}
-}
-
-#services {
-	.servicesBlockWrapper {
-		width: 80%;
-	}
-
-	h2 {
-		color: $sectionHeader1;
-	}
-}
-#booking {
-	h2 {
-		color: $sectionHeader2;
-	}
-}
-#media {
-	h2 {
-		color: $sectionHeader3;
-	}
-}
-#contact {
-	h2 {
-		color: $sectionHeader4;
-	}
-}
-
+/*
+	
+	                               #
+	
+	  ###    ###   # ##   #   #   ##     ###    ###    ###
+	 #      #   #  ##  #  #   #    #    #   #  #   #  #
+	  ###   #####  #       # #     #    #      #####   ###
+	     #  #      #       # #     #    #   #  #          #
+	 ####    ###   #        #     ###    ###    ###   ####
+	
+	
+ */
 .servicesBlockWrapper {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
 	margin: ($padding * 9) auto 0;
+	width: 80%;
 }
 	.servicesBlock {
 		flex: 1 0;
@@ -1689,6 +1766,18 @@ section > * {
 		}
 	}
 
+/*
+	
+	  #                    #       #                           #            ##
+	  #                    #                                                 #
+	 ####    ###    ###   ####    ##    ## #    ###   # ##    ##     ###     #     ###
+	  #     #   #  #       #       #    # # #  #   #  ##  #    #        #    #    #
+	  #     #####   ###    #       #    # # #  #   #  #   #    #     ####    #     ###
+	  #  #  #          #   #  #    #    # # #  #   #  #   #    #    #   #    #        #
+	   ##    ###   ####     ##    ###   #   #   ###   #   #   ###    ####   ###   ####
+	
+	
+ */
 .testimonialSection {
 	position: relative;
 	margin: ($padding * 10) 0 0;
@@ -1749,16 +1838,98 @@ section > * {
 				font: {
 					family: "futura-pt", sans-serif;
 					size: 0.75em;
+					style: normal;
 				}
 
 				a:link,
 				a:visited {
-					color: $sectionHeader2;
+					color: $linkColor;
 					text-decoration: none;
 				}
 			}
 	}
 
+/*
+	
+	                 #             #
+	
+	 # ##   # ##    ##     ###    ##    # ##    ## #
+	 ##  #  ##  #    #    #   #    #    ##  #  #  #
+	 ##  #  #        #    #        #    #   #   ##
+	 # ##   #        #    #   #    #    #   #  #
+	 #      #       ###    ###    ###   #   #   ###
+	 #                                         #   #
+	 #                                          ###
+ */
+.priceCalcWrapper {
+	text-align: center;
+
+	h3 {
+		color: #959595;
+		margin-top: $padding * 3;
+	}
+
+	.price {
+		font-size: 4em;
+		line-height: 1em;
+		margin-top: $padding * 2;
+
+		.dollarSign {
+			font-size: 0.5em;
+			line-height: 0.5em;
+			vertical-align: super;
+		}
+	}
+
+	.explainText {
+		font-size: 1em;
+		margin-top: $padding;
+	}
+
+	.subtract,
+	.value,
+	.add {
+		font-size: 1.75em;
+		font-family: 'futura-pt', sans-serif;
+		font-style: normal;
+		font-weight: 300;
+		line-height: 1em;
+		margin-top: $padding / 2;
+		display: inline-block;
+		border: 1px solid #fff;
+		border-radius: 50%;
+		width: 1em;
+		cursor: pointer;
+	}
+
+	.value {
+		border: 0;
+		cursor: default;
+	}
+
+	.feature {
+		display: inline-block;
+		margin-top: $padding;
+		cursor: pointer;
+
+		& > span {
+			margin-right: $padding / 2;
+		}
+	}
+}
+
+/*
+	
+	 #                    #        #
+	 #                    #
+	 # ##    ###    ###   #   #   ##    # ##    ## #
+	 ##  #  #   #  #   #  #  #     #    ##  #  #  #
+	 #   #  #   #  #   #  ###      #    #   #   ##
+	 ##  #  #   #  #   #  #  #     #    #   #  #
+	 # ##    ###    ###   #   #   ###   #   #   ###
+	                                           #   #
+	                                            ###
+ */
 #booking {
 	#calendar {
 		width: 540px;
@@ -1888,6 +2059,18 @@ section > * {
 		}
 	}
 
+/*
+	
+	                   #    #
+	                   #
+	 ## #    ###    ## #   ##     ###
+	 # # #  #   #  #  ##    #        #
+	 # # #  #####  #   #    #     ####
+	 # # #  #      #  ##    #    #   #
+	 #   #   ###    ## #   ###    ####
+	
+	
+ */
 .imageGallery {
 	display: flex;
 	flex-wrap: wrap;
@@ -1909,6 +2092,18 @@ section > * {
 	}
 }
 
+/*
+	
+	                       #                    #
+	                       #                    #
+	  ###    ###   # ##   ####    ###    ###   ####
+	 #   #  #   #  ##  #   #         #  #   #   #
+	 #      #   #  #   #   #      ####  #       #
+	 #   #  #   #  #   #   #  #  #   #  #   #   #  #
+	  ###    ###   #   #    ##    ####   ###     ##
+	
+	
+ */
 #contact {
 	h3 {
 		margin: $padding * 2 0 $padding;
@@ -1988,9 +2183,9 @@ section > * {
 			font-family: "baskerville-urw", serif;
 			font-size: 1.9em;
 			line-height: 1em;
-			color: $sectionHeader4;
+			color: $formButton;
 			background: none;
-			border: 2px solid $sectionHeader4;
+			border: 2px solid $formButton;
 			padding: ($padding * 1.5) ($padding * 5);
 			cursor: pointer;
 
@@ -2039,6 +2234,18 @@ section > * {
 	}
 }
 
+/*
+	
+	   ##                  #
+	  #  #                 #
+	  #      ###    ###   ####    ###   # ##
+	 ####   #   #  #   #   #     #   #  ##  #
+	  #     #   #  #   #   #     #####  #
+	  #     #   #  #   #   #  #  #      #
+	  #      ###    ###     ##    ###   #
+	
+	
+ */
 footer {
 	background-color: $footerBackground;
 	padding: ($padding * 2) 0;
@@ -2059,13 +2266,24 @@ footer {
 
 		a:link,
 		a:visited {
-			color: $sectionHeader2;
+			color: $linkColor;
 			text-decoration: none;
 		}
 	}
 }
 
-/***** Submit form *****/
+/*
+	
+	   ##
+	  #  #
+	  #      ###   # ##   ## #          # ##    ###    ## #   ###
+	 ####   #   #  ##  #  # # #         ##  #      #  #  #   #   #
+	  #     #   #  #      # # #         ##  #   ####   ##    #####
+	  #     #   #  #      # # #         # ##   #   #  #      #
+	  #      ###   #      #   #         #       ####   ###    ###
+	                                    #             #   #
+	                                    #              ###
+ */
 .messageWrapper {
 	margin: ($padding * 10) 0 0 ($padding * 2);
 	
@@ -2086,7 +2304,18 @@ footer {
 	bottom: 0;
 }
 
-/***** Media Queries *****/
+/*
+	
+	                   #    #                                                #
+	                   #
+	 ## #    ###    ## #   ##     ###           ## #  #   #   ###   # ##    ##     ###    ###
+	 # # #  #   #  #  ##    #        #         #  ##  #   #  #   #  ##  #    #    #   #  #
+	 # # #  #####  #   #    #     ####         #  ##  #   #  #####  #        #    #####   ###
+	 # # #  #      #  ##    #    #   #          ## #  #  ##  #      #        #    #          #
+	 #   #   ###    ## #   ###    ####             #   ## #   ###   #       ###    ###   ####
+	                                               #
+	                                               #
+ */
 @media only screen and (max-width: 1280px) {
 	#contactForm  {
 		margin: 50px auto;
