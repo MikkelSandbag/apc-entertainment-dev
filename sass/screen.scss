@@ -1491,13 +1491,18 @@ $pageBackground: #252525;
 $navBackground: #1a1a1a;
 $ctaButton: #00a651;
 $ctaButtonAccent: #00803e;
-$sectionHeader1: #ff7d7d;
-$sectionHeader2: #7dff7d;
-$sectionHeader3: #7cadff;
-$sectionHeader4: #be7dff;
-$sectionHeader5: #fff67d;
-$formButton: $sectionHeader2;
-$linkColor: $sectionHeader3;
+$red-color: #ff7d7d;
+$green-color: #7dff7d;
+$blue-color: #7cadff;
+$purple-color: #be7dff;
+$yellow-color: #fff67d;
+$sectionHeader1: $red-color;
+$sectionHeader2: $green-color;
+$sectionHeader3: $blue-color;
+$sectionHeader4: $purple-color;
+$sectionHeader5: $yellow-color;
+$formButton: $green-color;
+$linkColor: $blue-color;
 $footerBackground: #0d0d0d;
 
 //for calculations
@@ -1809,6 +1814,9 @@ section > * {
 		&#testimonialBackgroundWrapper3 {
 			background-image: url(../images/testimonial-image3.jpg);
 		}
+		&#testimonialBackgroundWrapper4 {
+			background-image: url(../images/testimonial-image4.jpg);
+		}
 	}
 }
 	
@@ -1886,6 +1894,11 @@ section > * {
 		margin-top: $padding;
 	}
 
+	.counterWrapper > *::selection,
+	.counterWrapper::selection {
+		background: transparent;
+	}
+
 	.subtract,
 	.value,
 	.add {
@@ -1907,13 +1920,56 @@ section > * {
 		cursor: default;
 	}
 
+	.addOnGroupWrapper {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+
+		.addOnGroup {
+			border: 1px solid #fff;
+			padding: 15px;
+			margin: $padding;
+			width: calc(35% - 15px);
+			box-sizing: border-box;
+			cursor: pointer;
+			transition: border-color 0.2s ease-in-out;
+
+			> * {
+				transition: color 0.2s ease-in-out;
+			}
+
+			&.selected {
+				border-color: $green-color;
+
+				> * {
+					color: $green-color;
+				}
+			}
+
+			.price {
+				margin-top: 0;
+			}
+
+			.hide {
+				opacity: 0;
+			}
+		}
+	}
+
 	.feature {
 		display: inline-block;
 		margin-top: $padding;
+		position: relative;
 		cursor: pointer;
 
-		& > span {
-			margin-right: $padding / 2;
+		.fa {
+			position: absolute;
+			top: 5px;
+			transition: opacity 0.2s ease-in-out;
+		}
+
+		.featureName {
+			margin-left: $padding * 2;
 		}
 	}
 }
@@ -2182,6 +2238,8 @@ section > * {
 		button {
 			font-family: "baskerville-urw", serif;
 			font-size: 1.9em;
+			font-style: italic;
+			font-weight: 700;
 			line-height: 1em;
 			color: $formButton;
 			background: none;
@@ -2293,7 +2351,7 @@ footer {
 
 	a:link,
 	a:visited {
-		color: $sectionHeader2;
+		color: $blue-color;
 		text-decoration: none;
 	}
 }
@@ -2420,6 +2478,17 @@ footer {
 		&:before {
 			left: -30px;
 			font-size: 2em;
+		}
+	}
+
+	.priceCalcWrapper {
+		.addOnGroupWrapper {
+			display: block;
+
+			.addOnGroup {
+				margin: 10px auto;
+				min-width: 280px;
+			}
 		}
 	}
 

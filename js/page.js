@@ -29036,14 +29036,24 @@ $('.contactFormSection input, .contactFormSection textarea').blur(function(event
 /***** End contact form verify *****/
 
 /***** Begin price calculator *****/
-var price = 0;
+var price = 1100;
 var basePrice = 1100;
-var counter = parseInt($('.value').text());
+var addHour = 200;
+var projectorPrice = 350;
+var ceremonyAudioPrice = 250;
+var uplightingPrice = 250;
+var danceLightingPrice = 50;
+var counter = 0;
+
 var updateCounter = function() {
 	parseInt($('.value').text(counter));
 };
-var updatePrice = function(amount) {
-	price = basePrice + counter * amount;
+var increasePrice = function(feature) {
+	price += feature;
+	$('.finalPrice').html('<span class="dollarSign">$</span>' + $.formatNumber(price, {format:"#,###", locale: "us"}));
+};
+var decreasePrice = function(feature) {
+	price -= feature;
 	$('.finalPrice').html('<span class="dollarSign">$</span>' + $.formatNumber(price, {format:"#,###", locale: "us"}));
 };
 
@@ -29051,15 +29061,43 @@ $('.subtract').click(function() {
 	if (counter != 0) {
 		counter--;
 		updateCounter();
-		updatePrice(200);
+		decreasePrice(addHour);
 	} else if (counter === 0) {
-		updatePrice(200);
+		return;
 	}
 });
 
 $('.add').click(function() {
 	counter++;
 	updateCounter();
-	updatePrice(200);
+	increasePrice(addHour);
+});
+
+$('.addOnGroup').click(function() {
+	if ($(this).find('span.fa-check-square-o').hasClass('hide')) {
+		$(this).toggleClass('selected').find('span.fa').toggleClass('hide');
+
+		if ($(this).attr('id') === 'addOn-projector') {
+			increasePrice(projectorPrice);
+		} else if ($(this).attr('id') === 'addOn-ceremonyAudio') {
+			increasePrice(ceremonyAudioPrice);
+		} else if ($(this).attr('id') === 'addOn-uplighting') {
+			increasePrice(uplightingPrice);
+		} else if ($(this).attr('id') === 'addOn-danceLighting') {
+			increasePrice(danceLightingPrice);
+		}
+	} else {
+		$(this).toggleClass('selected').find('span.fa').toggleClass('hide');
+		
+		if ($(this).attr('id') === 'addOn-projector') {
+			decreasePrice(projectorPrice);
+		} else if ($(this).attr('id') === 'addOn-ceremonyAudio') {
+			decreasePrice(ceremonyAudioPrice);
+		} else if ($(this).attr('id') === 'addOn-uplighting') {
+			decreasePrice(uplightingPrice);
+		} else if ($(this).attr('id') === 'addOn-danceLighting') {
+			decreasePrice(danceLightingPrice);
+		}
+	}
 });
 /***** End price calculator *****/
