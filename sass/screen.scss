@@ -493,6 +493,7 @@ temporary rendered events).
 .fc-scroller > .fc-time-grid {
 	position: relative; /* re-scope all positions */
 	width: 100%; /* hack to force re-sizing this inner element when scrollbars appear/disappear */
+	cursor: pointer;
 }
 
 
@@ -1610,6 +1611,46 @@ section > * {
 	}
 }
 
+body {
+	&:not(.loading) {
+		.loadingScreen {
+			display: none;
+		}
+	}
+
+	&.loading {
+		overflow: hidden;
+
+		.loadingScreen {
+			background-color: $pageBackground;
+			width: 100vw;
+			height: 100vh;
+			position: fixed;
+			left: 0;
+			top: 0;
+			z-index: 9999;
+
+			.loadingNavBar {
+				background-color: #1a1a1a;
+				padding: $padding $padding * 2;
+				width: 100%;
+
+				.loadingNavIcon {
+					width: 92px;
+					height: 47px;
+				}
+			}
+
+			.loadingSpinner {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+	}
+}
+
 /*
 	
 	
@@ -1924,12 +1965,15 @@ section > * {
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
+		max-width: 680px;
+		margin: 0 auto;
 
 		.addOnGroup {
 			border: 1px solid #fff;
 			padding: 15px;
 			margin: $padding;
-			width: calc(35% - 15px);
+			width: 100%;
+			max-width: 320px;
 			box-sizing: border-box;
 			cursor: pointer;
 			transition: border-color 0.2s ease-in-out;
@@ -1971,6 +2015,11 @@ section > * {
 		.featureName {
 			margin-left: $padding * 2;
 		}
+	}
+
+	.noteText {
+		margin: $padding * 3 auto 0;
+		width: 320px;
 	}
 }
 
@@ -2168,6 +2217,7 @@ section > * {
 	.socialMediaWrapper {
 
 		margin-bottom: $padding * 5;
+		text-align: center;
 
 		a:link,
 		a:visited {
@@ -2176,7 +2226,7 @@ section > * {
 			display: inline-block;
 			position: relative;
 			border: 1px solid #fff;
-			border-radius: 5px;
+			border-radius: 50%;
 			width: 40px;
 			height: 40px;
 			margin: 0 5px;
@@ -2189,6 +2239,30 @@ section > * {
 			}
 		}
 	}
+
+	.phoneWrapper {
+		text-align: center;
+
+		a:link,
+		a:visited {
+			font-size: 1.5em;
+			color: #fff;
+			text-decoration: none;
+		}
+
+		.fa-phone {
+			border: 1px solid #fff;
+			border-radius: 50%;
+			padding: 7px 0;
+			margin-right: 10px;
+			width: 40px;
+			box-sizing: border-box;
+		}
+	}
+}
+
+#contactForm h3 {
+	margin-bottom: $padding * 3;
 }
 
 #contactForm,
@@ -2487,7 +2561,6 @@ footer {
 
 			.addOnGroup {
 				margin: 10px auto;
-				min-width: 280px;
 			}
 		}
 	}

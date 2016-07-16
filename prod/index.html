@@ -34,7 +34,14 @@
 	<meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 </head>
-<body>
+<body class="loading">
+	<div class="loadingScreen">
+		<div class="loadingNavBar">
+			<img class="loadingNavIcon" src="images/apc-icon.svg" alt="APC Entertainment Icon">
+		</div>
+		<img class="loadingSpinner" src="images/loading-spinner.gif" alt="loading spinner">
+	</div>
+
 	<nav class="navOuterWrapper">
 		<a href="#top" class="homeLink"><img src="images/apc-icon.svg" id="homeIcon" alt="APC Entertainment Icon"></a>
 		<div class="mobileMenuButton"></div>
@@ -131,7 +138,8 @@
 			</div>
 			<div class="totalWrapper">
 				<h3>Total Price</h3>
-				<p class="price finalPrice"><span class="dollarSign">$</span>1,100</p>
+				<p class="price finalPrice"><span class="dollarSign">$</span><span class="finalPriceAmount">1,100</span></p>
+				<p class="noteText">A minimum non-refundable retainer of $<span class="depositAmount">550</span> is due and payable upon execution of a contract.</p>
 			</div>
 		</article>
 	</section>
@@ -291,14 +299,26 @@
 	<section class="contactSection" id="contact">
 		<article class="sectionHeaderWrapper">
 			<h2>Contact</h2>
+		</article>
+
+		<article class="contactInnerSection">
 			<h3>Find Us On</h3>
 			<div class="socialMediaWrapper">
-				<a href="https://www.facebook.com/APCEntertainment/" target="_blank"><i class="fa fa-facebook"></i></a>
-				<a href="https://twitter.com/OrangeCounty_DJ" target="_blank"><i class="fa fa-twitter"></i></a>
+				<a href="https://www.facebook.com/APCEntertainment/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				<a href="https://twitter.com/OrangeCounty_DJ" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			</div>
+		</article>
+
+		<article class="contactInnerSection">
+			<h3>Give Us a Call</h3>
+			<div class="phoneWrapper">
+				<a href="tel:7142822205"><i class="fa fa-phone" aria-hidden="true"></i>(714) 282-2205</a>
 			</div>
 		</article>
 
 		<form class="invalid" id="contactForm" action="sendForm.php" method="POST">
+			<h3>Send Us a Message</h3>
+
 			<div class="contactFormSection" id="nameContactSection">
 				<label for="name">Name *</label>
 				<input type="text" name="name" id="name" autocomplete="name" required>
@@ -337,17 +357,15 @@
         </script> All rights reserved</p>
 		<p class="byline">Site by <a href="http://mikkelsandberg.com" target="_blank">Mikkel Sandberg</a></p>
 	</footer>
-
-	<script src="js/live-reload.js"></script>
-
-	<!-- all scripts - minified -->
-	<script src="js/page.min.js"></script>
-
+	
 	<!-- Font Awesome -->
 	<script src="https://use.fontawesome.com/380ccfc68c.js"></script>
 
 	<!-- Typekit Fonts -->
 	<script src="https://use.typekit.net/hqg4hfr.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+	<!-- all scripts -->
+	<script src="js/page.min.js" async></script>
 </body>
 </html>

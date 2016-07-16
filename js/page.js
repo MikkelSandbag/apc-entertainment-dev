@@ -28788,6 +28788,10 @@ $(document).ready(function() {
       if(view != currentView){
         $('#calendar').fullCalendar('changeView', view);
       }
+    },
+    dayClick: function(date, jsEvent, view) {
+      $('#booking .ctaButtonInnerWrapper a').click();
+      $('#eventDay').val(date.format());
     }
   });
 });
@@ -29050,11 +29054,13 @@ var updateCounter = function() {
 };
 var increasePrice = function(feature) {
 	price += feature;
-	$('.finalPrice').html('<span class="dollarSign">$</span>' + $.formatNumber(price, {format:"#,###", locale: "us"}));
+	$('.finalPriceAmount').html($.formatNumber(price, {format:"#,###", locale: "us"}));
+	$('.depositAmount').html($.formatNumber(price/2, {format:"#,###", locale: "us"}));
 };
 var decreasePrice = function(feature) {
 	price -= feature;
-	$('.finalPrice').html('<span class="dollarSign">$</span>' + $.formatNumber(price, {format:"#,###", locale: "us"}));
+	$('.finalPriceAmount').html($.formatNumber(price, {format:"#,###", locale: "us"}));
+	$('.depositAmount').html($.formatNumber(price/2, {format:"#,###", locale: "us"}));
 };
 
 $('.subtract').click(function() {
@@ -29101,3 +29107,8 @@ $('.addOnGroup').click(function() {
 	}
 });
 /***** End price calculator *****/
+
+/***** Init page *****/
+window.onload = function() {
+	$('body').removeClass('loading');
+}
