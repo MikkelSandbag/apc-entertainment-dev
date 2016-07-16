@@ -36,7 +36,7 @@
 
 	<div class="messageWrapper">
 		<?php 
-			$recipient = 'admin@mikkelsandberg.com';
+			$recipient = 'allan@apcentertainment.net';
 			$name = $_POST['name'];
 			$email = $_POST['email'];
 			$subject = $_POST['subject'];

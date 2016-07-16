@@ -34,7 +34,12 @@
 	<meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 </head>
-<body class="loading">
+<body>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		$('body').addClass('loading');
+	</script>
+
 	<div class="loadingScreen">
 		<div class="loadingNavBar">
 			<img class="loadingNavIcon" src="images/apc-icon.svg" alt="APC Entertainment Icon">
@@ -160,7 +165,7 @@
 
 		<div id="calendar"></div>
 
-		<div id="bookingFormAnchor">
+		<div id="bookingFormAnchor" class="showPopup">
 			<div class="bookingFormOuterWrapper">
 				<div class="bookingFormInnerWrapper">
 					<h2>Request a day</h2>
@@ -357,7 +362,7 @@
         </script> All rights reserved</p>
 		<p class="byline">Site by <a href="http://mikkelsandberg.com" target="_blank">Mikkel Sandberg</a></p>
 	</footer>
-	
+
 	<!-- Font Awesome -->
 	<script src="https://use.fontawesome.com/380ccfc68c.js"></script>
 
@@ -365,7 +370,10 @@
 	<script src="https://use.typekit.net/hqg4hfr.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){}</script>
 
+	<!-- third party plugins -->
+	<script src="js/third-party.min.js"></script>
+
 	<!-- all scripts -->
-	<script src="js/page.min.js" async></script>
+	<script src="js/page.min.js"></script>
 </body>
 </html>

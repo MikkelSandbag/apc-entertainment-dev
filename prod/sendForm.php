@@ -46,24 +46,24 @@
 
 			// Allow names with limited punctuation
 			if (!preg_match('/^[a-z\ \.\']+$/i', $name)) {
-				$messages[] = "Only alphabetical letters and limited punctuation are allowed. Sorry for the inconvenience.";
+				$messages[] = "Name: Only alphabetical letters and limited punctuation are allowed. Sorry for the inconvenience.";
 			}
 
 			// Allow only valid emails
 			if (!preg_match('/[a-zA-Z0-9\.\!\#\$\%\&\'\*\+\/\=\?\^\_\`\{\|\}\~\-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*/', $email)) {
-				$messages[] = "Please make sure you entered an email in the proper format (i.e. myemail@example.com). Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.";
+				$messages[] = "Email: Please make sure you entered an email in the proper format (i.e. myemail@example.com). Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.";
 			}
 
 			// CAREFUL: don't allow hackers to sneak line breaks and additional headers into the message and trick us into spamming for them!
 			$subject = preg_replace('/\s+/', ' ', $subject);
 			// Make sure the subject isn't blank afterwards!
 			if (!preg_match('/^[a-z0-9\ \!\@\#\$\%\&\*\(\)\-\_\+\=\,\.\?\/\;\:\'\"]+$/i', $subject)) {
-				$messages[] = "Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.";
+				$messages[] = "Subject: Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience.";
 			}
 
 			// Make sure the message has a body
 			if (!preg_match('/^[a-z0-9\ \!\@\#\$\%\&\*\(\)\-\_\+\=\,\.\?\/\;\:\'\"]+$/im', $body)) {
-				$messages[] = "Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience."; 
+				$messages[] = "Message: Only alphanumeric characters and limited punctuation are allowed. Sorry for the inconvenience."; 
 			}
 
 			if (count($messages)) {

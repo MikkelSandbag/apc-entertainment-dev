@@ -1612,16 +1612,11 @@ section > * {
 }
 
 body {
-	&:not(.loading) {
-		.loadingScreen {
-			display: none;
-		}
-	}
-
 	&.loading {
 		overflow: hidden;
-
+		
 		.loadingScreen {
+			display: block;
 			background-color: $pageBackground;
 			width: 100vw;
 			height: 100vh;
@@ -1629,25 +1624,29 @@ body {
 			left: 0;
 			top: 0;
 			z-index: 9999;
-
-			.loadingNavBar {
-				background-color: #1a1a1a;
-				padding: $padding $padding * 2;
-				width: 100%;
-
-				.loadingNavIcon {
-					width: 92px;
-					height: 47px;
-				}
-			}
-
-			.loadingSpinner {
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				transform: translate(-50%, -50%);
-			}
 		}
+	}
+
+	.loadingNavBar {
+		background-color: #1a1a1a;
+		padding: $padding $padding * 2;
+		width: 100%;
+
+		.loadingNavIcon {
+			width: 92px;
+			height: 47px;
+		}
+	}
+
+	.loadingSpinner {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&:not(.loading) .loadingScreen {
+		display: none;
 	}
 }
 
