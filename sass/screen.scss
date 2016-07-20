@@ -2186,12 +2186,6 @@ body {
 
 		img {
 			width: 100%;
-			opacity: 0.33;
-			transition: opacity 0.2s ease-in-out;
-	
-			&:hover {
-				opacity: 1;
-			}
 		}
 	}
 }
